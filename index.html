@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color:#F6A1CB;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding:20px;
+}
+
+/* ---------- HEADER ---------- */
+
+header .title{
+    font-family:"Dancing Script",cursive;
+    font-weight:600;
+    font-size:clamp(48px, 10vw, 150px);
+    text-align:center;
+    letter-spacing:8px;
+    color:#000;
+    margin-bottom:40px;
+}
+
+/* ---------- CARDS SECTION ---------- */
+
+.cards{
+    width:100%;
+    max-width:1200px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    align-items:center;
+}
+
+.cards-wrapper{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* ---------- CARD ---------- */
+
+.card{
+    width:100%;
+    max-width:234px;
+    aspect-ratio:1/1;
+}
+
+.image{
+    width:100%;
+    height:100%;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:transform .4s ease;
+}
+
+.image:hover{
+    transform:scale(1.05);
+}
+
+.image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width:900px){
+    .cards-wrapper{
+        gap:15px;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    header .title{
+        letter-spacing:4px;
+        margin-bottom:25px;
+    }
+
+    .cards-wrapper{
+        gap:12px;
+    }
+
+    .card{
+        max-width:160px;
+    }
+}
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1 class="title">my love</h1>
+    </header>
+    <div class="cards">
+        <div class="cards-wrapper">
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/32150592-ce22-47ca-88ac-a8bcbe841aff.jpg" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/image.png" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/3b0ee055-ad07-4418-a962-908f6089cfb4.jpg" alt=""></div>
+        </div>
+        </div>
+                <div class="cards-wrapper">
+
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/897c6d54-11d4-4b99-9b0c-f874e4f249a6.jpg" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/My_QR_Code_1-1024.png" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/88319247-9cd5-45a6-8066-1cd8f9013482.jpg" alt=""></div>
+        </div>
+    </div>
+            <div class="cards-wrapper">
+
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/b3edf0d9-7957-4d2c-a016-e9e46f8a72ac.jpg" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/c472b70e-9d86-473d-9fb1-a5048f0fb45c.jpg" alt=""></div>
+        </div>
+        <div class="card">
+            <div class="image"><img src="/cicinikolozi/d456ee81-8c09-401c-82be-7d82231e0dae.jpg" alt=""></div>
+        </div>
+    </div>
+
+    </div>
+    <style>
+  .hearts-wrap {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .heart-particle {
+    position: absolute;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: floatIn ease-in-out forwards;
+  }
+
+  @keyframes floatIn {
+    0%   { opacity: 0;           transform: translate(0,0) scale(.3) rotate(var(--r0)); }
+    15%  { opacity: var(--op); }
+    80%  { opacity: var(--op); }
+    100% { opacity: 0;           transform: translate(var(--tx), var(--ty)) scale(var(--sf)) rotate(var(--r1)); }
+  }
+
+  .corner-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+    animation: cPulse 2.4s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255,60,120,.8));
+  }
+  .corner-heart.tl { top:8px;    left:8px;    animation-delay:0s;   }
+  .corner-heart.tr { top:8px;    right:8px;   animation-delay:.7s;  }
+  .corner-heart.bl { bottom:8px; left:8px;    animation-delay:1.4s; }
+  .corner-heart.br { bottom:8px; right:8px;   animation-delay:2.1s; }
+
+  @keyframes cPulse {
+    0%,100% { transform: scale(1)   rotate(-8deg); }
+    50%     { transform: scale(1.4) rotate(8deg);  filter: drop-shadow(0 0 14px rgba(255,60,120,1)); }
+  }
+</style>
+
+<div class="hearts-wrap" id="heartsWrap"></div>
+
+<div class="corner-heart tl"><svg width="32" height="30" viewBox="0 0 32 30"><defs><radialGradient id="cgTL" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#ffccdd"/><stop offset="100%" stop-color="#ff1a75"/></radialGradient></defs><path d="M16 27S3 17.5 3 9A6.5 6.5 0 0 1 16 6.2 6.5 6.5 0 0 1 29 9C29 17.5 16 27 16 27Z" fill="url(#cgTL)"/></svg></div>
+<div class="corner-heart tr"><svg width="32" height="30" viewBox="0 0 32 30"><defs><radialGradient id="cgTR" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#ffccdd"/><stop offset="100%" stop-color="#ff1a75"/></radialGradient></defs><path d="M16 27S3 17.5 3 9A6.5 6.5 0 0 1 16 6.2 6.5 6.5 0 0 1 29 9C29 17.5 16 27 16 27Z" fill="url(#cgTR)"/></svg></div>
+<div class="corner-heart bl"><svg width="32" height="30" viewBox="0 0 32 30"><defs><radialGradient id="cgBL" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#ffccdd"/><stop offset="100%" stop-color="#ff1a75"/></radialGradient></defs><path d="M16 27S3 17.5 3 9A6.5 6.5 0 0 1 16 6.2 6.5 6.5 0 0 1 29 9C29 17.5 16 27 16 27Z" fill="url(#cgBL)"/></svg></div>
+<div class="corner-heart br"><svg width="32" height="30" viewBox="0 0 32 30"><defs><radialGradient id="cgBR" cx="38%" cy="32%" r="65%"><stop offset="0%" stop-color="#ffccdd"/><stop offset="100%" stop-color="#ff1a75"/></radialGradient></defs><path d="M16 27S3 17.5 3 9A6.5 6.5 0 0 1 16 6.2 6.5 6.5 0 0 1 29 9C29 17.5 16 27 16 27Z" fill="url(#cgBR)"/></svg></div>
+
+<script>
+(() => {
+  const wrap = document.getElementById('heartsWrap');
+  const palette = [
+    ['#ff1a75','#ffb3d9'], ['#ff4d94','#ffcce0'], ['#e6005c','#ff80bf'],
+    ['#ff66b2','#ffe6f2'], ['#cc0052','#ff99cc'], ['#ff3385','#ffd6eb'],
+    ['#ff0066','#ffaacc'], ['#d4004d','#ffb3d9']
+  ];
+
+  let n = 0;
+
+  function spawnHeart() {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const side = Math.floor(Math.random() * 4);
+    const edge = 25;
+    let x, y;
+
+    if      (side === 0) { x = edge + Math.random()*(vw-edge*2); y = -5; }
+    else if (side === 1) { x = vw+5;  y = edge + Math.random()*(vh-edge*2); }
+    else if (side === 2) { x = edge + Math.random()*(vw-edge*2); y = vh+5; }
+    else                 { x = -5;   y = edge + Math.random()*(vh-edge*2); }
+
+    // drift slightly inward then fade
+    const ang  = Math.atan2(vh/2 - y, vw/2 - x);
+    const dist = 60 + Math.random() * 100;
+    const tx   = Math.cos(ang)*dist + (Math.random()-.5)*60;
+    const ty   = Math.sin(ang)*dist + (Math.random()-.5)*60;
+
+    const size    = 14 + Math.random()*22;
+    const [c1,c2] = palette[Math.floor(Math.random()*palette.length)];
+    const dur     = 3 + Math.random()*3;
+    const delay   = Math.random()*1.2;
+    const r0      = -45 + Math.random()*90;
+    const r1      = r0 + (Math.random()-.5)*100;
+    const sf      = 0.8 + Math.random()*0.8;
+    const op      = 0.5 + Math.random()*0.45;
+    const id      = 'hg'+(n++);
+
+    const ns  = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns,'svg');
+    svg.setAttribute('width',  size);
+    svg.setAttribute('height', size * 0.94);
+    svg.setAttribute('viewBox','0 0 32 30');
+
+    const defs = document.createElementNS(ns,'defs');
+    const grad = document.createElementNS(ns,'radialGradient');
+    grad.id = id;
+    grad.setAttribute('cx','38%'); grad.setAttribute('cy','32%'); grad.setAttribute('r','65%');
+    const s1 = document.createElementNS(ns,'stop');
+    s1.setAttribute('offset','0%');   s1.setAttribute('stop-color', c2);
+    const s2 = document.createElementNS(ns,'stop');
+    s2.setAttribute('offset','100%'); s2.setAttribute('stop-color', c1);
+    grad.append(s1,s2); defs.append(grad); svg.append(defs);
+
+    const path = document.createElementNS(ns,'path');
+    path.setAttribute('d','M16 27S3 17.5 3 9A6.5 6.5 0 0 1 16 6.2 6.5 6.5 0 0 1 29 9C29 17.5 16 27 16 27Z');
+    path.setAttribute('fill',`url(#${id})`);
+    svg.append(path);
+
+    const el = document.createElement('div');
+    el.className = 'heart-particle';
+    el.style.cssText = `
+      left:${x}px; top:${y}px;
+      --tx:${tx}px; --ty:${ty}px;
+      --r0:${r0}deg; --r1:${r1}deg;
+      --sf:${sf}; --op:${op};
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+      filter: drop-shadow(0 2px 5px ${c1}aa);
+    `;
+    el.appendChild(svg);
+    wrap.appendChild(el);
+    setTimeout(() => el.remove(), (dur+delay+.3)*1000);
+  }
+
+  // steady stream
+  setInterval(spawnHeart, 200);
+  // initial burst
+  for (let i = 0; i < 20; i++) setTimeout(spawnHeart, i*90);
+})();
+</script>
+</body>
+</html>
